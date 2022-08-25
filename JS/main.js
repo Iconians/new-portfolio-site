@@ -6,6 +6,8 @@ const dark = 'dark';
 const light = 'light';
 const open = 'open';
 const active = 'active';
+const parentDiv = document.getElementById('portfolio-card-div')
+const modalsDiv = document.getElementById('pop-up-modals')
 
 const modalOpen = '[data-open]';
 const modalClose = '[data-close]';
@@ -13,6 +15,7 @@ const isVisible = 'is-visible';
 
 const dataFilter = '[data-filter]';
 const portfolioData = '[data-item]'
+
 
 const root = document.documentElement;
 
@@ -29,6 +32,79 @@ const searchBox = document.querySelector('#search')
 // modal
 const openModal = document.querySelectorAll(modalOpen);
 const closeModal = document.querySelectorAll(modalClose);
+
+// const portfolioCards = [
+//   {
+//     dataItem: 'web',
+//     dataOpen: 'web-1',
+//     img: '/week 8 image assets/portfolio-1.jpg',
+//     div: 'Web Development',
+//     h3: 'Food Website',
+
+//   }
+// ];
+
+// const createPortFolioCards = (portfolioCards) => {
+//    const card = portfolioCards.map(({dataItem, dataOpen, img, div, h3}) => {
+//     return (`
+      
+//     <div class="portfolio-card" data-item="${dataItem}" data-open="${dataOpen}">
+//     <div class="card-body">
+//       <img src="${img}" alt="portfolio icon">
+//       <div class="card-popup-box">
+//         <div>${div}</div>
+//         <h3>${h3}</h3>
+//       </div>
+//     </div>
+//     </div> 
+//   `)
+//   }).join('')
+//   parentDiv.innerHTML = card
+// };
+
+// createPortFolioCards(portfolioCards)
+
+// const portfolioModals = [
+//   {
+//     id: 'web-1',
+//     h3: 'Web Project 1',
+//     img: '/week 8 image assets/portfolio-1.jpg',
+//     p1S: 'My first awesome website',
+//     p2: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunna aliqua.',
+//     p3: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut.'
+//   }
+// ]
+
+// const createPortFolioModals = (portfolioModals) => {
+//   const card = portfolioModals.map(({id, h3, img, p1S, p2, p3}) => {
+//    return (`
+     
+//    <div id="${id}" class="modal" data-animation="slideInOutTop">
+//       <div class="modal-dialog">
+//         <header class="modal-header">
+//           <h3>${h3}</h3>
+//           <i class="fas fa-times" data-close></i>
+//         </header>
+//         <div class="modal-body">
+//           <div class="img-wrapper">
+//             <img src="${img}" alt="" srcset="">
+//           </div>
+//           <div class="text-wrapper">
+//             <p><strong>${p1S}</strong></p>
+//             <p>${p2}</p>
+//             <p>${p3}</p>
+//           </div>
+//         </div>
+//       </div>
+//     </div>
+//  `)
+//  }).join('')
+//  modalsDiv.innerHTML = card
+// };
+
+// createPortFolioModals(portfolioModals)
+
+
 
 const setActive = (elm, selector) => {
   if (document.querySelector(`${selector}.${active}`) !== null) {
@@ -77,37 +153,38 @@ for (const elm of switcher) {
   })
 };
 
-searchBox.addEventListener('keyup', (e) =>{
-  const searchInput = e.target.value.toLowerCase().trim();
-  portfolioItems.forEach((card) => {
-    if (card.dataset.item.includes(searchInput)) {
-      card.style.display = 'block';
-    }else {
-      card.style.display = 'none';
-    }
-  })
-})
+// searchBox.addEventListener('keyup', (e) =>{
+//   const searchInput = e.target.value.toLowerCase().trim();
+//   portfolioItems.forEach((card) => {
+//     if (card.dataset.item.includes(searchInput)) {
+//       card.style.display = 'block';
+//     }else {
+//       card.style.display = 'none';
+//     }
+//   })
+// })
 
-for (const link of filterLink) {
-  link.addEventListener('click', function() {
-    setActive(link, '.filter-link');
-    const filter = this.dataset.filter; 
-    portfolioItems.forEach((card) => {
-      if (filter === 'all') {
-        card.style.display = 'block';
-      } else if (card.dataset.item === filter) {
-        card.style.display = 'block';
-      }else {
-        card.style.display = 'none';
-      }
-    })
-  })
-};
+// for (const link of filterLink) {
+//   link.addEventListener('click', function() {
+//     setActive(link, '.filter-link');
+//     const filter = this.dataset.filter; 
+//     portfolioItems.forEach((card) => {
+//       if (filter === 'all') {
+//         card.style.display = 'block';
+//       } else if (card.dataset.item === filter) {
+//         card.style.display = 'block';
+//       }else {
+//         card.style.display = 'none';
+//       }
+//     })
+//   })
+// };
 
 // Modal/full site modal "open buttons"
 for (const elm of openModal) {
   elm.addEventListener('click', function() {
     const modalId = this.dataset.open;
+    console.log(modalId)
     document.getElementById(modalId).classList.add(isVisible);
   })
 };
