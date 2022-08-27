@@ -43,7 +43,7 @@
   color: var(--color-text);
   padding: 0 0 5px 0;
   line-height: 26px;
-  margin-bottom: 40px;
+  margin-bottom: 20px;
   border-bottom: 1px solid var(--border);
   outline: none;
   background: transparent;
@@ -135,7 +135,7 @@
 
 @media (max-width: 450px) {
   :root {
-    --marquee-elms-displayed: 2;
+    --marquee-elms-displayed: 0;
   }
 
   .modal-body {
@@ -153,8 +153,8 @@
   }
 }
 
-@media (max-width: 352px) {
+/* @media (max-width: 352px) {
   :root {
     --marquee-elms-displayed: 0;
   }
-}
+} */
