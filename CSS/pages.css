@@ -49,6 +49,19 @@
   background: transparent;
 }
 
+.contact-link-div {
+  display: flex;
+  margin-top: 30px;
+  position: relative;
+}
+
+.contact-link-div-h4 {margin-right: 12px;}
+
+.contact-link-div-link {
+  position: relative;
+  top: 5px;
+}
+
 .marquee {
   width: var(--marquee-width);
   height: var(--marquee-height);
